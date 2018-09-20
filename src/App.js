@@ -4,6 +4,7 @@ import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
@@ -81,9 +82,8 @@ class App extends Component {
 
                 />
                 <Navigation onRouteChange={this.onRouteChange}/>
-                { this.state.route === 'SignIn'
-                        ? <SignIn onRouteChange={this.onRouteChange}/>
-                        : <div>
+                { this.state.route === 'home'
+                        ? <div>
                             <Logo />
                             <Rank />
                             <ImageLinkForm 
@@ -91,6 +91,11 @@ class App extends Component {
                                 onButtonSubmit={this.onButtonSubmit}/>
                             <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
                         </div>
+                        : (
+                            this.state.route === 'SignIn' 
+                            ? <SignIn onRouteChange={this.onRouteChange}/>
+                            : <Register onRouteChange={this.onRouteChange}/>   
+                        )
                 }
             </div>
         );
