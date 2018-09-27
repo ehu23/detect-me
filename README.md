@@ -1,3 +1,11 @@
+README
+
+1. Front end web app that detects faces from images (given in URL form). Connects w/ the respective backend server and database.
+2. Deployed on heroku: https://frb-frontend.herokuapp.com
+3. Sign in and registration functionality. (CURRENTLY SLOW TO PROCESS SIGN IN / REGISTRATION)
+
+------------Below is README info that came with create-react-app that might help-------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
