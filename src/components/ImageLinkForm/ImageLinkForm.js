@@ -5,7 +5,7 @@ const ImageLinkForm = ({ onInputChange, onPictureSubmit }) => {
     return (
         <div>
             <p className='f3'>
-                {'This Magic Eye can find faces in your pictures. Try it!'}
+                {'Directions: Paste an image URL (yes, URL), and this magic eye can locate a face in it!'}
             </p>
             <div className='center'>
                 <div className='center form pa4 br3 shadow-5'>
