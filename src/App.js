@@ -12,31 +12,33 @@ import './App.css';
 const particlesOptions = {
     particles: {
         number: {
-            value: 100,
+            value: 25,
             density: {
                 enable: true,
-                value_area: 700
+                value_area: 800
             }
         },
         shape: {
             type: "polygon",
             stroke: {width: 1, color: "#ffffff"},
             polygon: {nb_sides: 6}
-            
+
         },
         opacity: {
-            value: 0.6,
+            value: 0.3,
             random: true,
-            anim: {enable: true, speed: 1, opacity_min: 0.0, sync: false}
+            anim: {enable: true, speed: 0.5, opacity_min: 0.0, sync: false}
         },
         size: {
-            value: 70.0,
+            value: 15.0,
             random: true,
-            anim: {enable: true, speed: 40.0, size_min: 0.0, sync: false}
+            anim: {enable: true, speed: 10.0, size_min: 0.0, sync: false}
         },
         move: {
             enable: true,
-            speed: 4,
+            random: true,
+            speed: 2.0,
+            bounce: false,
             out_mode: "bounce"
         }
     },
