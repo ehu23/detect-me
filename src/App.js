@@ -12,7 +12,7 @@ import './App.css';
 const particlesOptions = {
     particles: {
         number: {
-            value: 25,
+            value: 50,
             density: {
                 enable: true,
                 value_area: 800
@@ -42,14 +42,14 @@ const particlesOptions = {
             out_mode: "bounce"
         }
     },
-    interactivity: { //currently does not work! Due to z-index being -1.
-        events: {
-            onhover: {enable: true, mode: "repulse"}
-        },
-        modes: {
-            repulse: { distance: 150, duration: 0.4 }
-        }
-    },
+    //    interactivity: { //currently does not work! Due to z-index being -1.
+    //        events: {
+    //            onhover: {enable: true, mode: "repulse"}
+    //        },
+    //        modes: {
+    //            repulse: { distance: 150, duration: 0.4 }
+    //        }
+    //    },
     retina_detect: true
 };
 
