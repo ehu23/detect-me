@@ -42,7 +42,7 @@ const particlesOptions = {
             out_mode: "bounce"
         }
     },
-    interactivity: {
+    interactivity: { //currently does not work! Due to z-index being -1.
         events: {
             onhover: {enable: true, mode: "repulse"}
         },
