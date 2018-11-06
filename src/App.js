@@ -12,13 +12,43 @@ import './App.css';
 const particlesOptions = {
     particles: {
         number: {
-            value: 30,
+            value: 100,
             density: {
                 enable: true,
-                value_area: 800
+                value_area: 700
             }
+        },
+        shape: {
+            type: "polygon",
+            stroke: {width: 1, color: "#ffffff"},
+            polygon: {nb_sides: 6}
+            
+        },
+        opacity: {
+            value: 0.6,
+            random: true,
+            anim: {enable: true, speed: 1, opacity_min: 0.0, sync: false}
+        },
+        size: {
+            value: 70.0,
+            random: true,
+            anim: {enable: true, speed: 40.0, size_min: 0.0, sync: false}
+        },
+        move: {
+            enable: true,
+            speed: 4,
+            out_mode: "bounce"
         }
-    }
+    },
+    interactivity: {
+        events: {
+            onhover: {enable: true, mode: "repulse"}
+        },
+        modes: {
+            repulse: { distance: 150, duration: 0.4 }
+        }
+    },
+    retina_detect: true
 };
 
 const initialState = {
