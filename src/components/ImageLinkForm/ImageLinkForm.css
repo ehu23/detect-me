@@ -11,4 +11,9 @@
     background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
 }
 
-
+.textBox {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    white-space: pre-wrap; 
+}
