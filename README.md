@@ -21,4 +21,4 @@ For the future:
 3. Make the eye more interactive (via more database logging)
 4. Maybe do something about that CPU intensity
 5. Change image input background
-
+6. Tilt is currently turned off, need to fix/change.
