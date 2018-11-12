@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Navigation from './components/Navigation/Navigation';
 import SignIn from './components/SignIn/SignIn';
@@ -8,50 +7,6 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
-
-const particlesOptions = {
-    particles: {
-        number: {
-            value: 50,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        shape: {
-            type: "polygon",
-            stroke: {width: 1, color: "#ffffff"},
-            polygon: {nb_sides: 6}
-
-        },
-        opacity: {
-            value: 0.3,
-            random: true,
-            anim: {enable: true, speed: 0.5, opacity_min: 0.0, sync: false}
-        },
-        size: {
-            value: 15.0,
-            random: true,
-            anim: {enable: true, speed: 10.0, size_min: 0.0, sync: false}
-        },
-        move: {
-            enable: true,
-            random: true,
-            speed: 2.0,
-            bounce: false,
-            out_mode: "bounce"
-        }
-    },
-    //    interactivity: { //currently does not work! Due to z-index being -1.
-    //        events: {
-    //            onhover: {enable: true, mode: "repulse"}
-    //        },
-    //        modes: {
-    //            repulse: { distance: 150, duration: 0.4 }
-    //        }
-    //    },
-    retina_detect: true
-};
 
 const initialState = {
         input: '',
@@ -147,11 +102,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Particles className='particles'
-                    params={particlesOptions}
-
-                />
+            <div className="App"> 
                 <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
                 { this.state.route === 'home'
                         ? <div>
