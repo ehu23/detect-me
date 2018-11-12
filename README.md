@@ -1,5 +1,4 @@
 Source Code for the Front End of Detect Me AI
-By: Eddie
 
 Quick Facts:
 1. Currently deployed on heroku: https://detect-me.herokuapp.com
