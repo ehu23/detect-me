@@ -21,3 +21,4 @@ For the future:
 4. Maybe do something about that CPU intensity
 5. Change image input background
 6. Tilt is currently turned off, need to fix/change.
+7. Find a more compatible smooth scrolling feature.
