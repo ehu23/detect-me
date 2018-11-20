@@ -36,12 +36,14 @@ const particlesOptions = {
             out_mode: "bounce"
         }
     },
-    interactivity: {//works since z-index of particles is 0 and everything else is hardcoded as 1. 
+    interactivity: { 
         events: {
-            onhover: {enable: true, mode: "repulse"}
+            onhover: {enable: true, mode: "repulse"},
+            onclick: { enable: true, mode: "push" }
         },
         modes: {
-            repulse: { distance: 150, duration: 0.4 }
+            repulse: { distance: 150, duration: 0.4 },
+            push: { particles_nb: 2 }
         }
     },
 };
