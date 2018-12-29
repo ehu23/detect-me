@@ -1,6 +1,8 @@
 .App {
   text-align: center;
 }
+
+/* quick class to flex box and center an element */
 .center {
     display: flex;
     justify-content: center;

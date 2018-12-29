@@ -1,9 +1,20 @@
+/* Adding custom font to font-face */
+@font-face {
+    font-family: 'orbitronregular';
+    src: url('fonts/orbitron-regular-webfont.woff2') format('woff2'),
+    url('fonts/orbitron-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Impact, Courier, monospace;
+  font-family: 'orbitronregular', Impact, Courier, monospace;
   background: linear-gradient(to right, rgb(251, 156, 108), rgb(115, 38, 255));
 }
+
 
 button {
     cursor: pointer;

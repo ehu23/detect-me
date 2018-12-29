@@ -1,5 +1,7 @@
 .Tilt {
   z-index: 1000; /*in order to not tilt under the particle layer*/
+
+  /* Background gradient for the logo*/
   background: linear-gradient(to right, rgb(251, 156, 108), rgb(115, 38, 255));
   }
 
