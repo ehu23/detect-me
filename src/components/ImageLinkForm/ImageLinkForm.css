@@ -1,8 +1,10 @@
+
+/* CSS for Image Upload Box */
 .form {
-    /* keep form width fixed*/
+    /* keep form width fixed */
     width: 700px;
 
-    /*hexagon background*/
+    /* hexagon background */
     background:
             radial-gradient(circle farthest-side at 0% 50%,#CCCCFF 23.5%,rgba(85,87,178,0) 0)21px 30px,
             radial-gradient(circle farthest-side at 0% 50%,#9966cc 24%,rgba(85,87,178,0) 0)19px 30px,
@@ -13,6 +15,7 @@
     background-size: 40px 60px;
 }
 
+/* CSS for instructions text box */
 .textBox {
     display: inline-block;
     position: relative;

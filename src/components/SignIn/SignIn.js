@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class SignIn extends React.Component {
     
     constructor(props) { //class components should always call base constructor with props
@@ -16,9 +17,10 @@ class SignIn extends React.Component {
         this.setState({signInPassword: event.target.value})
     }
     onSubmitSignIn = () => {
-        fetch('https://rocky-escarpment-90953.herokuapp.com/signin', { 
+        fetch('https://rocky-escarpment-90953.herokuapp.com/signin', {
+            // Prepare the Post Request
             method: 'post', //by default, fetch is GET
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json'}, // headers accepts an object. Content-Type is in quotes because it has a dash in the middle.
             body: JSON.stringify({
                 email: this.state.signInEmail,
                 password: this.state.signInPassword
@@ -26,9 +28,14 @@ class SignIn extends React.Component {
         })
             .then(response => response.json())
             .then(user => {
+                //if email and password matched in database,
                 if (user.email) {
                     this.props.loadUser(user)
                     this.props.onRouteChange('home')
+                }
+                //email and password did not find a match, return an error to the user. TODO: make the returned error prettier.
+                else  {
+                    alert("Email and/or Password combination does not exist, please try again!")
                 }
             })
     }
@@ -37,6 +44,7 @@ class SignIn extends React.Component {
     render() {
         const {onRouteChange} = this.props;
         return (
+            // Article tag is the tachyon 'card' element underneath the sign in form, which is tachyon generated as well.
             <article className="bg-white-10 hover-bg-white-40 shadow-hover relative z-1 br4 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"> {/*z-index change here*/}
                 <main className="pa4 black-80">
                     <div className="measure">
@@ -63,7 +71,7 @@ class SignIn extends React.Component {
                                 />
                             </div>
                         </fieldset>
-                        <div className="">
+                        <div>
                             <input 
                                 onClick={this.onSubmitSignIn} //syntax for passing a function for onClick, not calling the function and passing onClick the return statement
                                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
@@ -72,7 +80,10 @@ class SignIn extends React.Component {
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+                            <p onClick={() => onRouteChange('register')}
+                               className="b ba b--black ph3 pv2 f6 link dim black dib pointer">
+                               Register
+                            </p>
                         </div>
                     </div>
                 </main>  

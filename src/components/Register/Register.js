@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Similar to SignIn.js, see that file for more notes.
 class Register extends React.Component {
 
     constructor(props) { //class components should always call base constructor with props
@@ -20,9 +21,10 @@ class Register extends React.Component {
     onPasswordChange = (event) => {
         this.setState({registerPassword: event.target.value})
     }
+
     onSubmitRegister = () => {
         fetch('https://rocky-escarpment-90953.herokuapp.com/register', { 
-            method: 'post', //by default, fetch is GET
+            method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 email: this.state.registerEmail,
@@ -36,6 +38,7 @@ class Register extends React.Component {
                 this.props.loadUser(user)
                 this.props.onRouteChange('home')
             }
+            // You can add an error to the user here, but there shouldn't be one just yet because you cannot 'register' wrong as of yet.
         })
     }
 
@@ -79,7 +82,7 @@ class Register extends React.Component {
                                 />
                             </div>
                         </fieldset>
-                        <div className="">
+                        <div>
                             <input 
                                 onClick={this.onSubmitRegister} //syntax for passing a function for onClick, not calling the function and passing onClick the return statement
                                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 

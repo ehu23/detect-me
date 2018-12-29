@@ -1,7 +1,9 @@
+/* This Tilt Class came with react-tilt, we are just adding on to it */
 .Tilt {
-  z-index: 1000; /*in order to not tilt under the particle layer*/
+  /* in order to not tilt under the particle layer */
+  z-index: 1;
 
   /* Background gradient for the logo*/
   background: linear-gradient(to right, rgb(251, 156, 108), rgb(115, 38, 255));
-  }
+}
 
