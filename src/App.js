@@ -6,6 +6,7 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import './App.css';
 
 const initialState = {
@@ -14,13 +15,15 @@ const initialState = {
         box: {},
         route: 'signin',
         isSignedIn: false,
+        showingErrorMessage: false,
+        errorMessageText: '',
+        showingImage: false,
         user: {
             id: '',
             name: '',
             email: '',
             entries: 0, 
             joined: ''
-
         }
 }
 
@@ -31,6 +34,19 @@ class App extends Component {
         this.state = initialState;
     }
 
+    // handles the toggling of displaying an error message
+    onError = (message) => {
+        if (this.state.showingErrorMessage) // do not keep sending setTimeout's onto the callback queue when error is already displaying
+            return;
+
+        this.setState({showingErrorMessage: true, errorMessageText: message});
+
+        // Waits 2 seconds before setting state property!
+        setTimeout(() => {
+            this.setState({showingErrorMessage: false});
+        }, 2000);
+    }
+
     // Sets the 'user' state object
     loadUser = (data) => {
         this.setState({user: {
@@ -39,10 +55,10 @@ class App extends Component {
             email: data.email,
             entries: data.entries, 
             joined: data.joined
-        }})
+        }});
     }
 
-    // Grabs the 1st bounding box prediction data and computes its location.
+    // Grabs the 1st bounding box prediction data and computes its location. Pairs with displayFaceBox.
     calculateFaceLocation = (data) => {
         const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
 
@@ -59,7 +75,7 @@ class App extends Component {
         }
     }
 
-    // Just sets the box argument to the box state.
+    // Just sets the box argument to the box state. Pairs with calculateFaceLocation.
     displayFaceBox = (box) => {
         this.setState({box: box})
     }
@@ -72,7 +88,7 @@ class App extends Component {
     // When User clicks "Detect Me" button when uploading image
     onPictureSubmit = () => {
         this.setState({imageUrl: this.state.input});
-
+        this.setState({showingImage: false}); // always clear the image from the screen, if there is one. This prevents previous buggy images from rendering
         // Post over the user's url input to the server.
         // We send over 'input' instead of 'imageUrl' since setState is asynchronous! and still setting the state at this moment, so the imageUrl is not ready yet
         // FYI: One way to go around the asynchronous setState is to use a callback function
@@ -87,6 +103,7 @@ class App extends Component {
         .then(response => {
             if (response.outputs) { // A valid response will have an 'outputs' property (Note: might change if Clarifai change's its API)
                 // 'Put' over the user's ID
+                this.setState({showingImage: true}); // We are allowed to display!
                 fetch('https://rocky-escarpment-90953.herokuapp.com/image', {
                     method: 'put', 
                     headers: {'Content-Type': 'application/json'},
@@ -104,10 +121,9 @@ class App extends Component {
                 })
                 .catch(err => console.log(err));
             }
-            else { //the user inputted an invalid url. TODO: fix bug when image is greyed out when inputting an invalid url after a valid one.
-                alert("Please give me a valid URL that goes to a publicly accessible image!");
+            else { //the user inputted an invalid url.
+                this.onError("Please give me a valid URL that goes to a publicly accessible image!");
             }
-
         })
         .catch(err => console.log("Caught an error: ",err));
     }
@@ -118,8 +134,9 @@ class App extends Component {
             this.setState(initialState);
         } else if (route === 'home') {
             this.setState({isSignedIn: true});
+
         }
-        this.setState({route: route});
+        this.setState({showingErrorMessage: false, route: route});
     }
 
     render() {
@@ -136,16 +153,20 @@ class App extends Component {
                             <ImageLinkForm 
                                 onInputChange={this.onInputChange} 
                                 onPictureSubmit={this.onPictureSubmit}/>
-                            <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+                            {this.state.showingImage && <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />}
                         </div>
 
                         : // Render Signin or Register Screen, depending on the state
                         (
                             this.state.route === 'signin' 
-                            ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-                            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+                            ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} onError={this.onError}/>
+                            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} onError={this.onError}/>
                         )
                 }
+
+                {this.state.showingErrorMessage && <ErrorMessage message={this.state.errorMessageText}/> }
+
+
             </div>
         );
     }

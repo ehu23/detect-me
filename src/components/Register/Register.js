@@ -35,17 +35,21 @@ class Register extends React.Component {
         .then(response => response.json())
         .then(user => {
             if (user.email ) { 
-                this.props.loadUser(user)
-                this.props.onRouteChange('home')
+                this.props.loadUser(user);
+                this.props.onRouteChange('home');
             }
             else {
-                alert("Please enter valid inputs");
+                this.props.onError('I will not register someone with invalid/taken credentials.');
             }
             // You can add an error to the user here, but there shouldn't be one just yet because you cannot 'register' wrong as of yet.
         })
         .catch(err => console.log(err));
     }
 
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter')
+            this.onSubmitRegister();
+    }
 
     render() {
         return (
@@ -63,6 +67,7 @@ class Register extends React.Component {
                                     name="name"  
                                     id="name"
                                     onChange={this.onNameChange}
+                                    onKeyUp={this.handleKeyPress}
                                 />
                             </div>
                             <div className="mt3">      
@@ -73,6 +78,7 @@ class Register extends React.Component {
                                     name="email-address"  
                                     id="email-address"
                                     onChange={this.onEmailChange}
+                                    onKeyUp={this.handleKeyPress}
                                 />
                             </div>
                             <div className="mv3">
@@ -83,6 +89,7 @@ class Register extends React.Component {
                                     name="password"  
                                     id="password"
                                     onChange={this.onPasswordChange}
+                                    onKeyUp={this.handleKeyPress}
                                 />
                             </div>
                         </fieldset>

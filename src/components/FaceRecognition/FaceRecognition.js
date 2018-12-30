@@ -4,8 +4,9 @@ import './FaceRecognition.css';
 class FaceRecognition extends React.Component {
 
     componentDidUpdate(){
-        window.scrollTo({top: window.innerHeight, behavior: 'smooth'}); //not compatible yet with safari!   
+        window.scrollTo({top: window.innerHeight, behavior: 'smooth'}); //'smooth' not compatible yet with safari, edge, IE!
     }
+
 
     render() {
 
@@ -14,7 +15,7 @@ class FaceRecognition extends React.Component {
 
         return (
             <div className='center ma'>
-                <div className='absolute mt2 z-1'>
+                <div className='relative mt2 z-1'>
                     {/* Give the Image an ID of 'inputimage' so we can retrieve it later from the DOM */}
                     <img id='inputimage' alt='' src={imageUrl} width='500px' height='auto' />
 

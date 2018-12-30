@@ -30,17 +30,21 @@ class SignIn extends React.Component {
             .then(user => {
                 //if email and password matched in database,
                 if (user.email) {
-                    this.props.loadUser(user)
-                    this.props.onRouteChange('home')
+                    this.props.loadUser(user);
+                    this.props.onRouteChange('home');
                 }
                 //email and password did not find a match, return an error to the user. TODO: make the returned error prettier.
                 else  {
-                    alert("Email and/or Password combination does not exist, please try again!")
+                    this.props.onError('You did not enter valid credentials!');
                 }
             })
             .catch(err => console.log(err));
     }
-    
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter')
+            this.onSubmitSignIn();
+    }
     
     render() {
         const {onRouteChange} = this.props;
@@ -59,6 +63,7 @@ class SignIn extends React.Component {
                                     name="email-address"  
                                     id="email-address"
                                     onChange={this.onEmailChange}
+                                    onKeyUp={this.handleKeyPress}
                                 />
                             </div>
                             <div className="mv3">
@@ -69,6 +74,7 @@ class SignIn extends React.Component {
                                     name="password"  
                                     id="password"
                                     onChange={this.onPasswordChange}
+                                    onKeyUp={this.handleKeyPress}
                                 />
                             </div>
                         </fieldset>
