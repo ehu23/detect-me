@@ -38,6 +38,7 @@ class SignIn extends React.Component {
                     alert("Email and/or Password combination does not exist, please try again!")
                 }
             })
+            .catch(err => console.log(err));
     }
     
     

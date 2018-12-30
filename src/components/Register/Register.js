@@ -38,8 +38,12 @@ class Register extends React.Component {
                 this.props.loadUser(user)
                 this.props.onRouteChange('home')
             }
+            else {
+                alert("Please enter valid inputs");
+            }
             // You can add an error to the user here, but there shouldn't be one just yet because you cannot 'register' wrong as of yet.
         })
+        .catch(err => console.log(err));
     }
 
 
