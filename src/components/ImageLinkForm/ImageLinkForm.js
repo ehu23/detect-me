@@ -15,14 +15,14 @@ class ImageLinkForm extends React.Component {
 
         return (
             <div>
-                <p className='textBox f3 fw1 white bg-black-30 b--black br2 bw1 shadow-3 hover-bg-black-50 mb3 pa1 ba'>
+                <p className='textBox f3 fw1 w-90 white bg-black-30 b--black  bw1 shadow-3 hover-bg-black-50 mb3 pa1 ba'>
                     Present to me a human photo {"{ publicly accessible image URL }"}, and I'll try to pinpoint a face...
                     <br/>
                     Sample URL --- https://i.ytimg.com/vi/aHqckA4fBTg/maxresdefault.jpg
                 </p>
                 <div className='center'> {/* Must have 'center' as parent of 'form' in order to invoke z-index on the css background. Its a particular caveat for the css 'background' style property */}
                     <div className='form pa4 br3 shadow-5 z-1'>
-                        <input className='f4 pa2 w-70'
+                        <input className='f4 pa2 w-70 light-purple'
                                type='text'
                                onChange={onInputChange}
                                onKeyUp={this.handleKeyPress}

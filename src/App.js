@@ -7,6 +7,7 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import Banner from './components/Banner/Banner';
 import './App.css';
 
 const initialState = {
@@ -146,7 +147,7 @@ class App extends Component {
                 <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
 
                 { this.state.route === 'home'
-                        ? //Render Home Screen of the User
+                        ? // Render Home Screen of the User
                         <div>
                             <Logo />
                             <Rank name={this.state.user.name} entries={this.state.user.entries}/>
@@ -157,11 +158,15 @@ class App extends Component {
                         </div>
 
                         : // Render Signin or Register Screen, depending on the state
-                        (
-                            this.state.route === 'signin' 
-                            ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} onError={this.onError}/>
-                            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} onError={this.onError}/>
-                        )
+                        <div>
+                            <Banner />
+                            { this.state.route === 'signin'
+                                ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+                                          onError={this.onError}/>
+                                : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+                                            onError={this.onError}/>
+                            }
+                        </div>
                 }
 
                 {this.state.showingErrorMessage && <ErrorMessage message={this.state.errorMessageText}/> }
