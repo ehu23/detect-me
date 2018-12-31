@@ -50,7 +50,7 @@ class SignIn extends React.Component {
         const {onRouteChange} = this.props;
         return (
             // Article tag is the tachyon 'card' element underneath the sign in form, which is tachyon generated as well.
-            <article className="bg-white-10 hover-bg-white-40 shadow-hover relative z-1 br4 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"> {/*z-index change here*/}
+            <article className="bg-white-10 hover-bg-white-40 shadow-hover relative z-1 br4 ba b--black-10 mt4 w-100 w-50-m w-25-l mw6 shadow-5 center"> {/*z-index change here*/}
                 <main className="pa4 black-80">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
