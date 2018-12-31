@@ -1,9 +1,19 @@
 /* This Tilt Class came with react-tilt, we are just adding on to it */
-.Tilt {
+.picture {
   /* in order to not tilt under the particle layer */
   z-index: 1;
 
   /* Background gradient for the logo*/
-  background: linear-gradient(to right, rgb(251, 156, 108), rgb(115, 38, 255));
+  background:
+          radial-gradient(circle farthest-side at 0% 50%,#CCCCFF 23.5%,rgba(85,87,178,0) 0)21px 30px,
+          radial-gradient(circle farthest-side at 0% 50%,#9966cc 24%,rgba(85,87,178,0) 0)19px 30px,
+          linear-gradient(#CCCCFF 14%,rgba(85,87,178,0) 0, rgba(85,87,178,0) 85%,#CCCCFF 0)0 0,
+          linear-gradient(150deg,#CCCCFF 24%,#9966cc 0,#9966cc 26%,rgba(85,87,178,0) 0,rgba(85,87,178,0) 74%,#9966cc 0,#9966cc 76%,#CCCCFF 0)0 0,
+          linear-gradient(30deg,#CCCCFF 24%,#9966cc 0,#9966cc 26%,rgba(85,87,178,0) 0,rgba(85,87,178,0) 74%,#9966cc 0,#9966cc 76%,#CCCCFF 0)0 0,
+          linear-gradient(90deg,#9966cc 2%,#CCCCFF 0,#CCCCFF 98%,#9966cc 0%)0 0 #CCCCFF;
+  background-size: 40px 60px;
+
+  max-width: 150px;
+  max-height: 150px;
 }
 

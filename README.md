@@ -28,7 +28,6 @@ For the future:
 ```
 3. Make the eye more interactive (via more database logging perhaps)
 4. Maybe do something about that CPU intensity
-5. Tilt is currently turned off, need to fix/change.
 6. Find a more compatible 'smooth' scrolling css feature.
 7. Remove duplicate code from signin and register, i.e. put into base 'form' class or something.
 ```

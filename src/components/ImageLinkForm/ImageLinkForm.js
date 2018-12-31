@@ -15,7 +15,7 @@ class ImageLinkForm extends React.Component {
 
         return (
             <div>
-                <p className='textBox f3 fw1 w-90 white bg-black-30 b--black  bw1 shadow-3 hover-bg-black-50 mb3 pa1 ba'>
+                <p className='textBox f3 fw1 w-90 white bg-black-30 b--black  bw1 shadow-5 hover-bg-black-50 mb3 pa1 ba'>
                     Present to me a human photo {"{ publicly accessible image URL }"}, and I'll try to pinpoint a face...
                     <br/>
                     Sample URL --- https://i.ytimg.com/vi/aHqckA4fBTg/maxresdefault.jpg

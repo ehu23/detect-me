@@ -8,6 +8,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import Banner from './components/Banner/Banner';
+import Signature from './components/Signature/Signature';
 import './App.css';
 
 const initialState = {
@@ -171,6 +172,7 @@ class App extends Component {
 
                 {this.state.showingErrorMessage && <ErrorMessage message={this.state.errorMessageText}/> }
 
+                <Signature />
 
             </div>
         );
